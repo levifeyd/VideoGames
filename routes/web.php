@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\CreateGameController;
+use App\Http\Controllers\DeleteGameController;
+use App\Http\Controllers\IndexGameController;
+use App\Http\Controllers\ShowGameController;
+use App\Http\Controllers\StoreGameController;
+use App\Http\Controllers\UpdateGameController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +25,3 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
