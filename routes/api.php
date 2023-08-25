@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DeleteGameController;
 use App\Http\Controllers\IndexGameController;
 use App\Http\Controllers\ShowGameController;
@@ -23,10 +24,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:sanctum')->group( function () {
-    Route::get('/', [IndexGameController::class])->name('home');
-    Route::get('/show/{id}', [ShowGameController::class])->name('show');
-    Route::post('/store', [StoreGameController::class])->name('store');
-    Route::put('/update/{id}', [UpdateGameController::class])->name('update');
-    Route::delete('/delete/{id}', [DeleteGameController::class])->name('delete');
+Route::group(['middleware'=>'jwt.auth'], function () {
+    Route::get('games', IndexGameController::class);
+    Route::get('show/{id}', ShowGameController::class);
+    Route::post('store', StoreGameController::class);
+    Route::put('update/{id}', UpdateGameController::class);
+    Route::delete('delete/{id}', DeleteGameController::class);
+});
+
+Route::group(['middleware' => 'api', 'prefix' => 'auth',  'namespace' => 'App\Http\Controllers'], function ($router) {
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('refresh', [AuthController::class, 'refresh']);
+    Route::post('me', [AuthController::class, 'me']);
 });

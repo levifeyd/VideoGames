@@ -11,10 +11,10 @@ class DeleteGameController extends Controller
     {
         try {
             $data = $this->gameService->delete($id);
-            return $this->successResponse($data, "Success, item deleted!");
+            return $this->successResponse($data, "Success, game deleted!");
         }
         catch (Exception $exception) {
-            return $this->errorResponse('Item doesnt exist');
+            return $this->errorResponse('Game doesnt exist');
         }
     }
 }

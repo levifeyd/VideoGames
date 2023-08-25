@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\GameResource;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\JsonResponse;
 
 class ShowGameController extends Controller
 {
-    public function __invoke(int $id):GameResource
+    public function __invoke(int $id):GameResource|JsonResponse
     {
-        return new GameResource($this->gameService->show($id));
+        try {
+            return new GameResource($this->gameService->show($id));
+        } catch (\Exception $exception) {
+            return $this->errorResponse('Game doesnt exist');
+        }
+
     }
 }
