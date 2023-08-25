@@ -3,9 +3,7 @@
 namespace App\Services;
 
 use App\Http\Requests\CategoryGameRequest;
-use App\Http\Requests\GameRequest;
 use App\Repositories\CategoryGameRepository;
-use App\Repositories\GameRepository;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -50,6 +48,13 @@ class CategoryGameService
     public function getCategoryGame(int $id):Collection {
         try {
             return $this->categoryGameRepository->getById($id)->categories;
+        } catch (Exception $exception) {
+            throw $exception;
+        }
+    }
+    public function getGameByCategory(string $name):Collection {
+        try {
+            return $this->categoryGameRepository->getByColumn($name, 'name')->games;
         } catch (Exception $exception) {
             throw $exception;
         }

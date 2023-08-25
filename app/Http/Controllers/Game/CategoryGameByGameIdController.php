@@ -7,9 +7,9 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-class CategoryGameByIdController extends GameController
+class CategoryGameByGameIdController extends GameController
 {
-    public function __invoke(int $id): AnonymousResourceCollection|JsonResponse
+    public function __invoke(int $id) : AnonymousResourceCollection|JsonResponse
     {
         try {
             return CategoryGameResource::collection($this->gameService->getCategoryGame($id));

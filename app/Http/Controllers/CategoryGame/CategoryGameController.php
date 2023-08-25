@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\CategoryGame;
+namespace App\Http\Controllers\CategoryGame;
 
 use App\Repositories\CategoryGameRepository;
 use App\Services\CategoryGameService;
@@ -21,7 +21,7 @@ class CategoryGameController extends BaseController
         $this->categoryGameService = new CategoryGameService($categoryGameRepository);
     }
 
-    protected function successResponse($data, $message = null, $status = 200): JsonResponse
+    protected function successResponse($data, $message = null, $status = 200) : JsonResponse
     {
         return response()->json([
             'success' => true,

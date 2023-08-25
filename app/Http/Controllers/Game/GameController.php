@@ -26,7 +26,6 @@ class GameController extends BaseController
         return response()->json([
             'success' => true,
             'message' => $message,
-            'data' => $data
         ], $status);
     }
 
