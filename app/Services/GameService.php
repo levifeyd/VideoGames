@@ -10,28 +10,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class GameService
 {
-    private GameRepository $videoRepository;
-    public function __construct(GameRepository $videoRepository)
+    private GameRepository $gameRepository;
+    public function __construct(GameRepository $gameRepository)
     {
-        $this->videoRepository = $videoRepository;
+        $this->gameRepository = $gameRepository;
     }
 
     public function showAll():Collection {
-        return $this->videoRepository->all();
+        return $this->gameRepository->all();
     }
     public function show($id): Model {
-        return $this->videoRepository->getById($id);
+        return $this->gameRepository->getById($id);
     }
 
     /**
      * @throws \Exception
      */
     public function update(GameRequest $request, int $id): Model {
-        return $this->videoRepository->updateById($id, $request->all());
+        return $this->gameRepository->updateById($id, $request->all());
     }
 
     public function store(GameRequest $request):Model {
-        return $this->videoRepository->create($request->all());
+        return $this->gameRepository->create($request->all());
     }
 
     /**
@@ -39,7 +39,15 @@ class GameService
      */
     public function delete($id):bool {
         try {
-            return $this->videoRepository->deleteById($id);
+            return $this->gameRepository->deleteById($id);
+        } catch (Exception $exception) {
+            throw $exception;
+        }
+    }
+
+    public function getCategoryGame(int $id):Collection {
+        try {
+            return $this->gameRepository->getById($id)->categories;
         } catch (Exception $exception) {
             throw $exception;
         }

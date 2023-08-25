@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryGameController;
 use App\Http\Controllers\DeleteGameController;
 use App\Http\Controllers\IndexGameController;
 use App\Http\Controllers\ShowGameController;
@@ -30,6 +31,7 @@ Route::group(['middleware'=>'jwt.auth'], function () {
     Route::post('store', StoreGameController::class);
     Route::put('update/{id}', UpdateGameController::class);
     Route::delete('delete/{id}', DeleteGameController::class);
+    Route::get('games-categories/{id}', CategoryGameController::class);
 });
 
 Route::group(['middleware' => 'api', 'prefix' => 'auth',  'namespace' => 'App\Http\Controllers'], function ($router) {
