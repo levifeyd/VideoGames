@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Game;
 
 use App\Http\Resources\CategoryGameResource;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-class CategoryGameController extends Controller
+class CategoryGameByIdController extends GameController
 {
     public function __invoke(int $id): AnonymousResourceCollection|JsonResponse
     {

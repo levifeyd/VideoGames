@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Game\GameController;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class LoginController extends Controller
+class LoginGameController extends GameController
 {
     /*
     |--------------------------------------------------------------------------
-    | Login Controller
+    | Login GameController
     |--------------------------------------------------------------------------
     |
     | This controller handles authenticating users for the application and

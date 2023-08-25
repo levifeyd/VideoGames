@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
+use App\Http\Controllers\Game\GameController;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class RegisterController extends Controller
+class RegisterGameController extends GameController
 {
     /*
     |--------------------------------------------------------------------------
-    | Register Controller
+    | Register GameController
     |--------------------------------------------------------------------------
     |
     | This controller handles the registration of new users as well as their

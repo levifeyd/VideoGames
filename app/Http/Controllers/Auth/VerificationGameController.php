@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Game\GameController;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 
-class VerificationController extends Controller
+class VerificationGameController extends GameController
 {
     /*
     |--------------------------------------------------------------------------
-    | Email Verification Controller
+    | Email Verification GameController
     |--------------------------------------------------------------------------
     |
     | This controller is responsible for handling email verification for any

@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Game\GameController;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ConfirmsPasswords;
 
-class ConfirmPasswordController extends Controller
+class ConfirmPasswordGameController extends GameController
 {
     /*
     |--------------------------------------------------------------------------
-    | Confirm Password Controller
+    | Confirm Password GameController
     |--------------------------------------------------------------------------
     |
     | This controller is responsible for handling password confirmations and

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Game\GameController;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
-class ForgotPasswordController extends Controller
+class ForgotPasswordGameController extends GameController
 {
     /*
     |--------------------------------------------------------------------------
-    | Password Reset Controller
+    | Password Reset GameController
     |--------------------------------------------------------------------------
     |
     | This controller is responsible for handling password reset emails and

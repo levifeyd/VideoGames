@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Game;
 
 use App\Http\Resources\GameResource;
 use Exception;
 use Illuminate\Http\JsonResponse;
 
-class ShowGameController extends Controller
+class ShowGameController extends GameController
 {
     public function __invoke(int $id):GameResource|JsonResponse
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Game;
 
 use App\Repositories\GameRepository;
 use App\Services\GameService;
@@ -10,7 +10,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller as BaseController;
 
-class Controller extends BaseController
+class GameController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 

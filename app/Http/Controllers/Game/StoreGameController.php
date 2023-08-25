@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Game;
 
 use App\Http\Requests\GameRequest;
 use App\Http\Resources\GameResource;
 
-class StoreGameController extends Controller
+class StoreGameController extends GameController
 {
     public function __invoke(GameRequest $request):GameResource
     {

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Game;
 
 use App\Http\Resources\GameResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-class IndexGameController extends Controller
+class IndexGameController extends GameController
 {
     public function __invoke() :AnonymousResourceCollection
     {
