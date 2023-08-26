@@ -9,7 +9,7 @@ use Illuminate\Http\JsonResponse;
 
 class UpdateGameController extends GameController
 {
-    public function __invoke(GameRequest $request, int $id) : GameResource|JsonResponse
+    public function __invoke(GameRequest $request, int $id): GameResource|JsonResponse
     {
         try {
             return new GameResource($this->gameService->update($request, $id));

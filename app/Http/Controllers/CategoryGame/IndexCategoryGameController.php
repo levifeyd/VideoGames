@@ -7,7 +7,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class IndexCategoryGameController extends CategoryGameController
 {
-    public function __invoke() : AnonymousResourceCollection
+    public function __invoke(): AnonymousResourceCollection
     {
         return CategoryGameResource::collection($this->categoryGameService->showAll());
     }

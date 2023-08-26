@@ -21,7 +21,7 @@ class CategoryGameController extends BaseController
         $this->categoryGameService = new CategoryGameService($categoryGameRepository);
     }
 
-    protected function successResponse($data, $message = null, $status = 200) : JsonResponse
+    protected function successResponse($data, $message = null, $status = 200): JsonResponse
     {
         return response()->json([
             'success' => true,

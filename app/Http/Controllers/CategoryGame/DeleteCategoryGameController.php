@@ -7,7 +7,7 @@ use Illuminate\Http\JsonResponse;
 
 class DeleteCategoryGameController extends CategoryGameController
 {
-    public function __invoke($id) : JsonResponse
+    public function __invoke($id): JsonResponse
     {
         try {
             $data = $this->categoryGameService->delete($id);

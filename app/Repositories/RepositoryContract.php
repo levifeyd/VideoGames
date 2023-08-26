@@ -22,7 +22,4 @@ interface RepositoryContract
 
     public function updateById(int $id, array $data, array $options = []);
 
-    public function orderBy($column, $value);
-
-
 }

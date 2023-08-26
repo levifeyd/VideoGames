@@ -16,7 +16,7 @@ class GameService
         $this->gameRepository = $gameRepository;
     }
 
-    public function showAll():Collection {
+    public function showAll(): Collection {
         return $this->gameRepository->all();
     }
     public function show($id): Model {
@@ -30,14 +30,14 @@ class GameService
         return $this->gameRepository->updateById($id, $request->all());
     }
 
-    public function store(GameRequest $request):Model {
+    public function store(GameRequest $request): Model {
         return $this->gameRepository->create($request->all());
     }
 
     /**
      * @throws \Exception
      */
-    public function delete($id):bool {
+    public function delete($id): bool {
         try {
             return $this->gameRepository->deleteById($id);
         } catch (Exception $exception) {
@@ -47,7 +47,7 @@ class GameService
 
     public function getCategoryGame(int $id):Collection {
         try {
-            return $this->gameRepository->getById($id)->categories;
+            return $this->gameRepository->getGamesCategories($id);
         } catch (Exception $exception) {
             throw $exception;
         }

@@ -10,7 +10,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class GameByCategoryNameController extends CategoryGameController
 {
-    public function __invoke(string $name) : AnonymousResourceCollection|JsonResponse
+    public function __invoke(string $name): AnonymousResourceCollection|JsonResponse
     {
         try {
             return CategoryGameResource::collection($this->categoryGameService->getGameByCategory($name));

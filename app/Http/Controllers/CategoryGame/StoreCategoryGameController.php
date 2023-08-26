@@ -8,7 +8,7 @@ use Illuminate\Http\JsonResponse;
 
 class StoreCategoryGameController extends CategoryGameController
 {
-    public function __invoke(CategoryGameRequest $request) : CategoryGameResource|JsonResponse
+    public function __invoke(CategoryGameRequest $request): CategoryGameResource|JsonResponse
     {
         return new CategoryGameResource($this->categoryGameService->store($request));
     }
