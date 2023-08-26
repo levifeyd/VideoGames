@@ -23,9 +23,6 @@ class CategoryGameService
         return $this->categoryGameRepository->getById($id);
     }
 
-    /**
-     * @throws \Exception
-     */
     public function update(CategoryGameRequest $request, int $id): Model {
         return $this->categoryGameRepository->updateById($id, $request->all());
     }
@@ -34,9 +31,6 @@ class CategoryGameService
         return $this->categoryGameRepository->create($request->all());
     }
 
-    /**
-     * @throws \Exception
-     */
     public function delete($id):bool {
         try {
             return $this->categoryGameRepository->deleteById($id);

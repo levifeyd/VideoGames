@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\AuthRegister\AuthController;
+use App\Http\Controllers\AuthRegister\RegisterController;
 use App\Http\Controllers\CategoryGame\DeleteCategoryGameController;
 use App\Http\Controllers\CategoryGame\GameByCategoryNameController;
 use App\Http\Controllers\CategoryGame\IndexCategoryGameController;
@@ -54,4 +55,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::post('me', [AuthController::class, 'me']);
+});
+
+Route::group(['middleware' => 'guest'], function () {
+    Route::post('register', [RegisterController::class, 'register']);
 });
