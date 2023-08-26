@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\AuthRegister;
+namespace App\Http\Controllers\Auth;
 
 use App\Traits\Login;
 use Illuminate\Http\JsonResponse;

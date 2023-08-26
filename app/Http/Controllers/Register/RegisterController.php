@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\AuthRegister;
+namespace App\Http\Controllers\Register;
 
 use App\Http\Requests\UserRequest;
 use App\Repositories\UserRepository;

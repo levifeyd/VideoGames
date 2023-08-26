@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\AuthRegister\AuthController;
-use App\Http\Controllers\AuthRegister\RegisterController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Register\RegisterController;
 use App\Http\Controllers\CategoryGame\DeleteCategoryGameController;
 use App\Http\Controllers\CategoryGame\GameByCategoryNameController;
 use App\Http\Controllers\CategoryGame\IndexCategoryGameController;
