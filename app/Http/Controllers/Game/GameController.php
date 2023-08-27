@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Game;
 
 use App\Repositories\GameRepository;
 use App\Services\GameService;
+use App\Traits\Responses;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -12,7 +13,7 @@ use Illuminate\Routing\Controller as BaseController;
 
 class GameController extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests, Responses;
 
     protected GameService $gameService;
 
@@ -21,19 +22,4 @@ class GameController extends BaseController
         $this->gameService = new GameService($gameRepository);
     }
 
-    protected function successResponse($message = null, $status = 200): JsonResponse
-    {
-        return response()->json([
-            'success' => true,
-            'message' => $message,
-        ], $status);
-    }
-
-    protected function errorResponse($message = 'Something went wrong', $status = 500): JsonResponse
-    {
-        return response()->json([
-            'success' => false,
-            'message' => $message,
-        ], $status);
-    }
 }

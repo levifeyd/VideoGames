@@ -4,6 +4,7 @@ namespace App\Http\Controllers\CategoryGame;
 
 use App\Repositories\CategoryGameRepository;
 use App\Services\CategoryGameService;
+use App\Traits\Responses;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -12,7 +13,7 @@ use Illuminate\Routing\Controller as BaseController;
 
 class CategoryGameController extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests, Responses;
 
     protected CategoryGameService $categoryGameService;
 
@@ -21,20 +22,4 @@ class CategoryGameController extends BaseController
         $this->categoryGameService = new CategoryGameService($categoryGameRepository);
     }
 
-    protected function successResponse($data, $message = null, $status = 200): JsonResponse
-    {
-        return response()->json([
-            'success' => true,
-            'message' => $message,
-            'data' => $data
-        ], $status);
-    }
-
-    protected function errorResponse($message = 'Something went wrong', $status = 500): JsonResponse
-    {
-        return response()->json([
-            'success' => false,
-            'message' => $message,
-        ], $status);
-    }
 }

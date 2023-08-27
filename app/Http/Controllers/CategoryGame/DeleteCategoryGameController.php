@@ -10,8 +10,8 @@ class DeleteCategoryGameController extends CategoryGameController
     public function __invoke($id): JsonResponse
     {
         try {
-            $data = $this->categoryGameService->delete($id);
-            return $this->successResponse($data, "Success, category deleted!");
+            $this->categoryGameService->delete($id);
+            return $this->successResponse("Success, category deleted!");
         }
         catch (Exception $exception) {
             return $this->errorResponse('Category doesnt exist');
