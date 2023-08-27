@@ -20,14 +20,14 @@ class UserService
 
     public function register(UserRequest $request): JsonResponse
     {
-        $user = $this->store($request);
-        return $this->tryToLogin(['email'=>$user->email, 'password'=>$request->password]);
+        $this->store($request);
+        return $this->tryToLogin(['email'=>$request->email, 'password'=>$request->password]);
     }
 
     private function store(UserRequest $request): Model
     {
         $dataForCreatingUser = $request->all();
         $dataForCreatingUser["password"] = Hash::make($request->password);
-        return $this->userRepository->create([$dataForCreatingUser]);
+        return $this->userRepository->create($dataForCreatingUser);
     }
 }

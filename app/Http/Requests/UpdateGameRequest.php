@@ -6,12 +6,12 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
 
-class GameRequest extends FormRequest
+class UpdateGameRequest extends FormRequest
 {
     public function rules(): array
     {
         return [
-            'name'=>'required',
+            'name'=>['string','max:255'],
         ];
     }
     protected function failedValidation(Validator $validator)

@@ -2,7 +2,8 @@
 
 namespace App\Services;
 
-use App\Http\Requests\GameRequest;
+use App\Http\Requests\StoreGameRequest;
+use App\Http\Requests\UpdateGameRequest;
 use App\Repositories\GameRepository;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
@@ -26,11 +27,11 @@ class GameService
     /**
      * @throws \Exception
      */
-    public function update(GameRequest $request, int $id): Model {
+    public function update(UpdateGameRequest $request, int $id): Model {
         return $this->gameRepository->updateById($id, $request->all());
     }
 
-    public function store(GameRequest $request): Model {
+    public function store(StoreGameRequest $request): Model {
         return $this->gameRepository->create($request->all());
     }
 

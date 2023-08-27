@@ -6,15 +6,14 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
 
-class CategoryGameRequest extends FormRequest
+class StoreGameRequest extends FormRequest
 {
     public function rules(): array
     {
         return [
-            'name'=>'required', 'unique:categories',
+            'name'=>['required','unique:games'],
         ];
     }
-
     protected function failedValidation(Validator $validator)
     {
         $response = response()->json([

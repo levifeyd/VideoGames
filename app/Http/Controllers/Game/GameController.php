@@ -21,7 +21,7 @@ class GameController extends BaseController
         $this->gameService = new GameService($gameRepository);
     }
 
-    protected function successResponse($data, $message = null, $status = 200): JsonResponse
+    protected function successResponse($message = null, $status = 200): JsonResponse
     {
         return response()->json([
             'success' => true,
