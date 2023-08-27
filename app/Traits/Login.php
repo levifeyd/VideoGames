@@ -6,7 +6,7 @@ use Illuminate\Http\JsonResponse;
 
 trait Login
 {
-    public function tryToLogin($credentials): JsonResponse
+    protected function tryToLogin($credentials): JsonResponse
     {
         if (! $token = auth('api')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);

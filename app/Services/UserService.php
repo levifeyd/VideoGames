@@ -26,8 +26,8 @@ class UserService
 
     private function store(UserRequest $request): Model
     {
-        $input = $request->all();
-        $input["password"] = Hash::make($request->password);
-        return $this->userRepository->create($input);
+        $dataForCreatingUser = $request->all();
+        $dataForCreatingUser["password"] = Hash::make($request->password);
+        return $this->userRepository->create([$dataForCreatingUser]);
     }
 }

@@ -11,7 +11,7 @@ class DeleteCategoryGameController extends CategoryGameController
     {
         try {
             $data = $this->categoryGameService->delete($id);
-            return $this->successResponse($data, "Success, game deleted!");
+            return $this->successResponse($data, "Success, category deleted!");
         }
         catch (Exception $exception) {
             return $this->errorResponse('Category doesnt exist');

@@ -39,13 +39,6 @@ class CategoryGameService
         }
     }
 
-    public function getCategoryGame(int $id): Collection {
-        try {
-            return $this->categoryGameRepository->getById($id)->categories;
-        } catch (Exception $exception) {
-            throw $exception;
-        }
-    }
     public function getGameByCategory(string $name): Collection {
         try {
             return $this->categoryGameRepository->getGameByCategoryName($name);

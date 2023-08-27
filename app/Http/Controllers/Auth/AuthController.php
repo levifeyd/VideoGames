@@ -17,8 +17,7 @@ class AuthController extends BaseController
 
     public function login(): JsonResponse
     {
-        $credentials = request(['email', 'password']);
-        return $this->tryToLogin($credentials);
+        return $this->tryToLogin(request(['email', 'password']));
     }
     public function me(): JsonResponse
     {
