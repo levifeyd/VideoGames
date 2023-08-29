@@ -16,22 +16,27 @@ class CategoryGameService
         $this->categoryGameRepository = $categoryGameRepository;
     }
 
-    public function showAll(): Collection {
+    public function showAll(): Collection
+    {
         return $this->categoryGameRepository->all();
     }
-    public function show($id): Model {
+    public function show($id): Model
+    {
         return $this->categoryGameRepository->getById($id);
     }
 
-    public function update(CategoryGameRequest $request, int $id): Model {
+    public function update(CategoryGameRequest $request, int $id): Model
+    {
         return $this->categoryGameRepository->updateById($id, $request->all());
     }
 
-    public function store(CategoryGameRequest $request): Model {
+    public function store(CategoryGameRequest $request): Model
+    {
         return $this->categoryGameRepository->create($request->all());
     }
 
-    public function delete($id):bool {
+    public function delete($id):bool
+    {
         try {
             return $this->categoryGameRepository->deleteById($id);
         } catch (Exception $exception) {
@@ -39,9 +44,19 @@ class CategoryGameService
         }
     }
 
-    public function getGameByCategory(string $name): Collection {
+    public function getGameByCategory(string $name): Collection
+    {
         try {
             return $this->categoryGameRepository->getGameByCategoryName($name);
+        } catch (Exception $exception) {
+            throw $exception;
+        }
+    }
+
+    public function getGameByCategoryId(int $id): Collection
+    {
+        try {
+            return $this->categoryGameRepository->getGameByCategoryId($id);
         } catch (Exception $exception) {
             throw $exception;
         }

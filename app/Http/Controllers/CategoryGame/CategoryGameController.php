@@ -22,4 +22,15 @@ class CategoryGameController extends BaseController
         $this->categoryGameService = new CategoryGameService($categoryGameRepository);
     }
 
+    protected function checkExistGameByCategoryId(int $id): bool|JsonResponse
+    {
+        try {
+            return (count($this->categoryGameService->getGameByCategoryId($id)) > 0) ?
+                $this->errorResponse('There is a game with this category') :
+                false;
+        } catch (\Exception $e) {
+            return $this->errorResponse('Category doesnt exist');
+        }
+    }
+
 }

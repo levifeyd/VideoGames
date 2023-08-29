@@ -23,4 +23,10 @@ class CategoryGameRepository extends BaseRepository
         $this->unsetClauses();
         return $this->getByColumn($name, 'name')->games;
     }
+
+    public function getGameByCategoryId(int $id) : Collection
+    {
+        $this->unsetClauses();
+        return $this->getById($id)->games;
+    }
 }
