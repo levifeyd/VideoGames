@@ -24,9 +24,11 @@ class CategoryGameRepository extends BaseRepository
         return $this->getByColumn($name, 'name')->games;
     }
 
-    public function getGameByCategoryId(int $id) : Collection
+    public function getGameByCategoryId(int $id) :bool|Collection
     {
         $this->unsetClauses();
-        return $this->getById($id)->games;
+        $games = $this->getById($id)->games;
+        return count($games) > 0 ? $games : false;
+
     }
 }

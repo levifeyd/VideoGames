@@ -53,7 +53,7 @@ class CategoryGameService
         }
     }
 
-    public function getGameByCategoryId(int $id): Collection
+    public function checkExistGameByCategoryId(int $id): bool|Collection
     {
         try {
             return $this->categoryGameRepository->getGameByCategoryId($id);
